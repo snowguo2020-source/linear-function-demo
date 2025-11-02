@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一次函数 y = kx + b 可视化</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>一次函数 y = kx + b 可视化</h1>
+            <div class="introduction">
+                <p>
+                    <strong>一次函数</strong>是指形如 <em>y = kx + b</em>（其中 k ≠ 0）的函数，其图像是一条直线。
+                </p>
+                <p>
+                    <strong>斜率 k</strong>：表示直线的倾斜程度，k > 0 时直线向右上方倾斜，k < 0 时向右下方倾斜。|k| 越大，直线越陡峭。
+                </p>
+                <p>
+                    <strong>截距 b</strong>：表示直线与 y 轴的交点纵坐标，即当 x = 0 时，y = b。
+                </p>
+                <p>
+                    <strong>实际应用</strong>：一次函数广泛应用于日常生活，如计算出租车费用（起步价 + 单价×里程）、温度转换（摄氏度与华氏度）、速度与路程的关系等。
+                </p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-section">
+                <canvas id="coordinateCanvas" width="600" height="600"></canvas>
+            </div>
+
+            <div class="control-panel">
+                <div class="current-function">
+                    <h3>当前函数表达式</h3>
+                    <div class="function-display">
+                        y = <span id="kValue" class="highlight">1</span>x + <span id="bValue" class="highlight">0</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div class="slider-group">
+                        <label for="kSlider">
+                            斜率 k: <span id="kDisplay">1</span>
+                        </label>
+                        <input type="range" id="kSlider" min="-5" max="5" step="1" value="1">
+                    </div>
+
+                    <div class="slider-group">
+                        <label for="bSlider">
+                            截距 b: <span id="bDisplay">0</span>
+                        </label>
+                        <input type="range" id="bSlider" min="-5" max="5" step="1" value="0">
+                    </div>
+
+                    <div class="button-group">
+                        <button id="resetBtn" class="btn btn-primary">重置参数</button>
+                        <button id="randomBtn" class="btn btn-secondary">随机函数</button>
+                    </div>
+                </div>
+
+                <div class="explanation">
+                    <h3>原理说明</h3>
+                    <div id="dynamicExplanation" class="explanation-text">
+                        <!-- 动态解释将在这里显示 -->
+                    </div>
+                    
+                    <div class="principle-guide">
+                        <h4>📐 斜率 k 的含义</h4>
+                        <p>斜率 k = Δy / Δx，表示 x 每增加 1 个单位，y 增加 k 个单位。</p>
+                        <ul>
+                            <li>k > 0：直线向右上方倾斜（递增）</li>
+                            <li>k < 0：直线向右下方倾斜（递减）</li>
+                            <li>|k| 越大，直线越陡峭</li>
+                        </ul>
+
+                        <h4>📍 截距 b 的含义</h4>
+                        <p>截距 b 是直线与 y 轴的交点，坐标为 (0, b)。</p>
+                        <ul>
+                            <li>b > 0：直线与 y 轴交于正半轴</li>
+                            <li>b < 0：直线与 y 轴交于负半轴</li>
+                            <li>b = 0：直线经过原点</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="point-info">
+                    <h4>📌 直线上的点</h4>
+                    <div id="pointCoords">将鼠标移到直线上查看坐标</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
