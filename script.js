@@ -444,5 +444,9 @@ function drawMousePoint() {
     }
 }
 
-// 启动应用
-init();
+// 启动应用 - 等待 DOM 加载完成
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
